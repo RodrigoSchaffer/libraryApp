@@ -23,7 +23,7 @@ public class BookstoreController {
     }
 
     @GetMapping(path = "/Author/{id}")
-    public ResponseEntity<AuthorDTO> getAuthor(@PathVariable("id") UUID id) {
+    public AuthorDTO getAuthor(@PathVariable("id") UUID id) {
         return bookstoreService.getAuthor(id);
     }
 

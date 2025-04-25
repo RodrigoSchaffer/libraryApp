@@ -28,18 +28,17 @@ public class BookstoreService {
 
         Author author = new Author();
         author.setName(dto.getName());
-        dto.setId(dto.getId());
 
         authorRepository.save(author);
+        dto.setId(dto.getId());
         return dto;
     }
 
-    public ResponseEntity<AuthorDTO> getAuthor(UUID id) {
+    public AuthorDTO getAuthor(UUID id) {
         Author author = authorRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("No author goes by this id"));
-
-        AuthorDTO dto = BookstoreMapper.toDTO(author);
-        return ResponseEntity.ok(dto);
+        
+        return BookstoreMapper.toDTO(author);
     }
 
     public List<AuthorDTO> getAllAuthors() {
@@ -75,9 +74,9 @@ public class BookstoreService {
         book.setTitle(dto.getTitle());
         book.setGenre(dto.getGenre());
         book.setAuthor(author);
-        dto.setId(book.getId());
 
         bookRepository.save(book);
+        dto.setId(book.getId());
         return dto;
     }
 
