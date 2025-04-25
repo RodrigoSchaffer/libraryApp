@@ -1,34 +1,34 @@
 package com.library_app.book_store.DTOs;
 
-import com.library_app.book_store.enums.Status;
+
+import java.util.UUID;
 
 public class AuthorDTO {
-    private String fullName;
-
-    private Status status;
+    private UUID id;
+    private String name;
 
     public AuthorDTO() {
 
     }
 
-    public AuthorDTO(String fullName, Status status) {
-        this.fullName = fullName;
-        this.status = status;
+    public AuthorDTO(String name, UUID id) {
+        this.name = name;
+        this.id = id;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getName() {
+        return name;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Status getStatus() {
-        return status;
+    public UUID getId() {
+        return id;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void setId(UUID id) {
+        this.id = id;
     }
 }

@@ -1,63 +1,46 @@
 package com.library_app.book_store.entity;
-
-import com.library_app.book_store.enums.Status;
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Table(name = "Author")
 public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column
-    private String fullName;
+    @Column(name = "Name")
+    private String name;
 
-    @Column
-    private Status status;
+    @Column(name = "Books")
+    private List<Book> books;
+
 
 
     public Author() {
 
     }
 
-    public Author(UUID id, String fullName) {
+    public Author(UUID id, String name) {
         this.id = id;
-        this.fullName = fullName;
-    }
-
-    public Author(UUID id, String fullName, Status status) {
-        this.id = id;
-        this.fullName = fullName;
-        this.status = status;
+        this.name = name;
     }
 
     public UUID getId() {
         return id;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
 
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
 }
 
